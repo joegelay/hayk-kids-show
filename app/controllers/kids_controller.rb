@@ -14,9 +14,10 @@ class KidsController < ApplicationController
     })
 
     if @kid.save
-      render json: { kid: @kid }
+      render json: @kid
     else 
-      render :new 
+      render json: @kid.errors.full_messages 
     end 
+    
   end
 end
